@@ -27,12 +27,12 @@ body {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(199, 220, 255, 0.2);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 .custom-navbar.scrolled {
     background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
 }
 
 .logo {
@@ -48,7 +48,9 @@ body {
 .navbar-nav .nav-link {
     color: var(--text-dark) !important;
     font-weight: 500;
-    margin: 0 10px;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: 25px;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -60,16 +62,17 @@ body {
 .navbar-nav .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 0;
+    bottom: 0;
+    left: 50%;
     width: 0;
     height: 2px;
     background: var(--primary-color);
-    transition: width 0.3s ease;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
 .navbar-nav .nav-link:hover::after {
-    width: 100%;
+    width: 80%;
 }
 
 /* Hero Banner */
@@ -155,6 +158,14 @@ body {
 
 .hero-image {
     text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
     animation: float 6s ease-in-out infinite;
 }
 
@@ -638,23 +649,38 @@ body {
     
     /* Mobile Navbar Improvements */
     .custom-navbar {
-        padding: 1rem 0;
-        min-height: 70px;
+        padding: 0.75rem 0;
+        min-height: 80px;
+    }
+    
+    .custom-navbar .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     
     .navbar-brand {
         padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        flex: 1;
+        min-width: 0;
     }
     
     .logo {
-        max-height: 45px;
+        max-height: 50px;
         width: auto;
+        max-width: 250px;
     }
     
     .navbar-toggler {
         padding: 0.5rem;
         border: none;
         margin-left: auto;
+        flex-shrink: 0;
+    }
+    
+    .navbar-collapse {
+        margin-top: 1rem;
     }
     
     .navbar-nav {
@@ -664,12 +690,22 @@ body {
     
     .navbar-nav .nav-link {
         margin: 0.5rem 0;
-        padding: 0.75rem 1rem;
+        padding: 0.75rem 1rem !important;
     }
     
     .hero-content {
         text-align: center;
         margin-bottom: 2rem;
+        padding-top: 2rem;
+    }
+    
+    .hero-image {
+        margin-top: 2rem;
+    }
+    
+    .hero-image img {
+        max-width: 80%;
+        height: auto;
     }
     
     .contact-item {
@@ -734,24 +770,31 @@ body {
     
     /* Extra Small Mobile Navbar */
     .custom-navbar {
-        padding: 0.75rem 0;
-        min-height: 65px;
+        padding: 0.5rem 0;
+        min-height: 75px;
     }
     
     .navbar-brand {
         padding: 0.25rem 0;
-        flex-grow: 1;
+        flex: 1;
+        display: flex;
+        align-items: center;
     }
     
     .logo {
-        max-height: 40px;
+        max-height: 45px;
         width: auto;
-        max-width: 200px;
+        max-width: 220px;
     }
     
     .navbar-toggler {
         padding: 0.25rem 0.5rem;
         margin-left: 0.5rem;
+        flex-shrink: 0;
+    }
+    
+    .hero-content {
+        padding-top: 1.5rem;
     }
     
     .hero-buttons .btn {
