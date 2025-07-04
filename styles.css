@@ -636,6 +636,27 @@ body {
         font-size: 2rem;
     }
     
+    /* Mobile Navbar Improvements */
+    .custom-navbar {
+        padding: 1rem 0;
+        min-height: 70px;
+    }
+    
+    .navbar-brand {
+        padding: 0.5rem 0;
+    }
+    
+    .logo {
+        max-height: 45px;
+        width: auto;
+    }
+    
+    .navbar-toggler {
+        padding: 0.5rem;
+        border: none;
+        margin-left: auto;
+    }
+    
     .navbar-nav {
         text-align: center;
         padding: 1rem 0;
@@ -643,6 +664,7 @@ body {
     
     .navbar-nav .nav-link {
         margin: 0.5rem 0;
+        padding: 0.75rem 1rem;
     }
     
     .hero-content {
@@ -710,8 +732,26 @@ body {
         font-size: 1.8rem;
     }
     
+    /* Extra Small Mobile Navbar */
+    .custom-navbar {
+        padding: 0.75rem 0;
+        min-height: 65px;
+    }
+    
+    .navbar-brand {
+        padding: 0.25rem 0;
+        flex-grow: 1;
+    }
+    
     .logo {
         max-height: 40px;
+        width: auto;
+        max-width: 200px;
+    }
+    
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+        margin-left: 0.5rem;
     }
     
     .hero-buttons .btn {
