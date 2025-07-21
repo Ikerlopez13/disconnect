@@ -224,42 +224,76 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-.event-image {
-    position: relative;
-    overflow: hidden;
+/* Clean Card Styles */
+.clean-card {
+    border: none;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 2rem;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.event-image img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+.event-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #a8c4f0 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
 }
 
-.event-card:hover .event-image img {
-    transform: scale(1.05);
+.clean-card:hover .event-icon {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(199, 220, 255, 0.4);
 }
 
-.event-info {
-    padding: 1.5rem;
-}
-
-.event-title {
-    font-size: 1.3rem;
-    font-weight: 600;
+.event-icon i {
+    font-size: 2rem;
     color: var(--text-dark);
-    margin-bottom: 0.5rem;
 }
 
-.event-date, .event-location {
+.clean-card .event-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.event-description {
+    font-size: 1rem;
     color: var(--text-light);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
 }
 
-.event-date i, .event-location i {
+.event-cta {
+    margin-top: auto;
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--primary-color);
-    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+    background: rgba(199, 220, 255, 0.2);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(199, 220, 255, 0.3);
+}
+
+.clean-card .btn {
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
 }
 
 /* Merchandising Section */
@@ -441,6 +475,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    text-decoration: none;
 }
 
 .btn-buy {
@@ -451,6 +486,8 @@ body {
 .btn-buy:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(199, 220, 255, 0.4);
+    color: var(--text-dark);
+    text-decoration: none;
 }
 
 .btn-info {
@@ -903,4 +940,74 @@ html {
 .featured-product-title, .featured-product-description, .featured-product-details, 
 .featured-product-price, .featured-product-buttons, .coming-soon-overlay {
     /* These styles are now obsolete */
+} 
+
+/* Single Event Card */
+.single-event-card {
+    border: none;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid rgba(199, 220, 255, 0.3);
+}
+
+.single-event-card .event-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #a8c4f0 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(199, 220, 255, 0.3);
+}
+
+.single-event-card:hover .event-icon {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(199, 220, 255, 0.5);
+}
+
+.single-event-card .event-icon i {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+}
+
+.single-event-card .event-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.single-event-card .event-description {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.single-event-card .cta-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    background: rgba(199, 220, 255, 0.2);
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(199, 220, 255, 0.3);
+}
+
+.single-event-card .btn-lg {
+    padding: 1rem 3rem;
+    font-weight: 700;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
 } 

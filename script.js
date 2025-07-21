@@ -1,3 +1,30 @@
+// Product info function
+function showProductInfo() {
+    const productInfo = `
+🔥 CAMISETA DISCONNECT EDICIÓN DORADA 🔥
+
+✨ CARACTERÍSTICAS:
+• Material: 100% Algodón Premium
+• Color: Negro con Logo Dorado
+• Tallas disponibles: S, M, L, XL, XXL
+• Diseño exclusivo de Disconnect Events
+
+📦 ENVÍO:
+• Envío gratuito en Barcelona
+• Entrega en 2-3 días laborables
+• Packaging premium incluido
+
+💎 EDICIÓN LIMITADA:
+Solo disponible por tiempo limitado.
+¡No te quedes sin la tuya!
+
+¿Tienes alguna pregunta?
+Contáctanos: info@disconnectevents.com
+    `;
+    
+    alert(productInfo);
+}
+
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
     // Navbar scroll effect

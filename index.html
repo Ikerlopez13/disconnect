@@ -58,7 +58,7 @@
                             <p class="hero-subtitle">La mejor experiencia de fiestas en Barcelona</p>
                             <p class="hero-description">Vive la noche como nunca antes. Eventos únicos, música increíble y momentos inolvidables.</p>
                             <div class="hero-buttons">
-                                <a href="https://www.fourvenues.com/disconnectevents" target="_blank" class="btn btn-primary btn-lg me-3">Ver Próximos Eventos</a>
+                                <a href="https://www.fourvenues.com/es/lista-disconnect?fbclid=PAZXh0bgNhZW0CMTEAAacV7hfwOxI_FGl4dFkDJR-1JO8R8aFISHQalnreoJ7Bg21zjbgw0dlOxWA2FA_aem_4qJegVbEXF0Rv8KS2FRtIQ" target="_blank" class="btn btn-primary btn-lg me-3">Ver Próximos Eventos</a>
                                 <a href="#merchandising" class="btn btn-outline-light btn-lg">Merchandising</a>
                             </div>
                         </div>
@@ -84,45 +84,19 @@
             </div>
             
             <!-- Events Grid -->
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="event-card fade-in">
-                        <div class="event-image">
-                            <img src="images/flyers/Captura de pantalla 2025-07-04 a las 12.36.04.png" alt="SHOWTIME FRIDAYS" class="img-fluid">
-                        </div>
-                        <div class="event-info">
-                            <h3 class="event-title">SHOWTIME FRIDAYS</h3>
-                            <p class="event-date"><i class="fas fa-calendar-alt"></i> Viernes 4 Julio 2025</p>
-                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Otto Zutz Club, Barcelona</p>
-                            <a href="https://www.fourvenues.com/disconnectevents" target="_blank" class="btn btn-primary">Ver Evento</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-4">
-                    <div class="event-card fade-in">
-                        <div class="event-image">
-                            <img src="images/flyers/Captura de pantalla 2025-07-04 a las 12.37.04.png" alt="SOM FESTES FESTIVAL" class="img-fluid">
-                        </div>
-                        <div class="event-info">
-                            <h3 class="event-title">SOM FESTES FESTIVAL</h3>
-                            <p class="event-date"><i class="fas fa-calendar-alt"></i> Viernes 4 Julio 2025</p>
-                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Malalts de Festa, Barcelona</p>
-                            <a href="https://www.fourvenues.com/disconnectevents" target="_blank" class="btn btn-primary">Ver Evento</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-4">
-                    <div class="event-card fade-in">
-                        <div class="event-image">
-                            <img src="images/flyers/Captura de pantalla 2025-07-04 a las 12.38.36.png" alt="Viernes La Biblio" class="img-fluid">
-                        </div>
-                        <div class="event-info">
-                            <h3 class="event-title">Viernes La Biblio</h3>
-                            <p class="event-date"><i class="fas fa-calendar-alt"></i> Viernes 4 Julio 2025</p>
-                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> La Biblio BCN, Barcelona</p>
-                            <a href="https://www.fourvenues.com/disconnectevents" target="_blank" class="btn btn-primary">Ver Evento</a>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="event-card fade-in single-event-card">
+                        <div class="event-info text-center">
+                            <div class="event-icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <h3 class="event-title">Disconnect Events</h3>
+                            <p class="event-description">La mejor lista de eventos de Barcelona</p>
+                            <div class="event-cta">
+                                <p class="cta-text">🎫 Consigue aquí tus entradas</p>
+                                <a href="https://www.fourvenues.com/es/lista-disconnect?fbclid=PAZXh0bgNhZW0CMTEAAacV7hfwOxI_FGl4dFkDJR-1JO8R8aFISHQalnreoJ7Bg21zjbgw0dlOxWA2FA_aem_4qJegVbEXF0Rv8KS2FRtIQ" target="_blank" class="btn btn-primary btn-lg">Ver Todos los Eventos</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,11 +162,11 @@
                                     </div>
                                     
                                     <div class="action-buttons">
-                                        <button class="btn-buy">
+                                        <a href="https://buy.stripe.com/aFa14n0xI30CdJr0Eb5Rm00" target="_blank" class="btn-buy">
                                             <i class="fas fa-shopping-cart"></i>
                                             Comprar Ahora
-                                        </button>
-                                        <button class="btn-info">
+                                        </a>
+                                        <button class="btn-info" onclick="showProductInfo()">
                                             <i class="fas fa-info-circle"></i>
                                             Más Información
                                         </button>
