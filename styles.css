@@ -733,7 +733,7 @@ body {
     .hero-content {
         text-align: center;
         margin-bottom: 2rem;
-        padding-top: 2rem;
+        padding-top: 6rem;
     }
     
     .hero-image {
@@ -831,7 +831,7 @@ body {
     }
     
     .hero-content {
-        padding-top: 1.5rem;
+        padding-top: 5rem;
     }
     
     .hero-buttons .btn {
