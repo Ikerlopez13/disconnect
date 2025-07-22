@@ -281,3 +281,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     });
 }); 
+
+// Error handling for resources
+window.addEventListener('error', function(e) {
+    console.warn('Resource failed to load:', e.target.src || e.target.href);
+});
+
+// Ensure page loads even if some resources fail
+document.addEventListener('DOMContentLoaded', function() {
+    // Remove loading state
+    document.body.classList.remove('loading');
+    
+    // Fallback for missing Bootstrap
+    if (typeof bootstrap === 'undefined') {
+        console.warn('Bootstrap not loaded, using fallbacks');
+        // Add basic mobile menu functionality
+        const toggler = document.querySelector('.navbar-toggler');
+        const collapse = document.querySelector('.navbar-collapse');
+        if (toggler && collapse) {
+            toggler.addEventListener('click', function() {
+                collapse.classList.toggle('show');
+            });
+        }
+    }
+}); 
