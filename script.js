@@ -19,7 +19,8 @@ Solo disponible por tiempo limitado.
 ¡No te quedes sin la tuya!
 
 ¿Tienes alguna pregunta?
-Contáctanos: info@disconnectevents.com
+Contáctanos: Carlesmonistrol@gmail.com
+Tel: 675 308 293
     `;
     
     alert(productInfo);
