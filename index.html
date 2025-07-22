@@ -308,6 +308,89 @@
     <!-- Custom JS -->
     <script src="script.js"></script>
     
+    <!-- SSL/Connection fallback for Instagram -->
+    <script>
+        // Detect connection issues and provide fallback
+        window.addEventListener('error', function(e) {
+            if (e.message && e.message.includes('SSL') || 
+                e.message && e.message.includes('ERR_SSL_UNRECOGNIZED_NAME_ALERT')) {
+                console.log('SSL error detected, showing fallback');
+                showConnectionFallback();
+            }
+        });
+        
+        function showConnectionFallback() {
+            const fallback = document.createElement('div');
+            fallback.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: #C7DCFF;
+                    color: #333;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    z-index: 99999;
+                    padding: 20px;
+                ">
+                    <img src="images/logo blanco letras sin fondo.png" style="max-width: 200px; margin-bottom: 20px;" alt="Disconnect Events">
+                    <h2>🔗 Problema de Conexión</h2>
+                    <p style="margin: 20px 0; font-size: 16px; max-width: 400px;">
+                        Parece que hay un problema con la conexión. 
+                        Si estás en Instagram, intenta abrir en tu navegador.
+                    </p>
+                    <div style="margin-top: 20px;">
+                        <a href="https://www.fourvenues.com/es/disconnectevents" 
+                           style="
+                               display: inline-block;
+                               background: #333;
+                               color: white;
+                               padding: 15px 30px;
+                               text-decoration: none;
+                               border-radius: 25px;
+                               margin: 10px;
+                               font-weight: bold;
+                           ">
+                           🎉 Ver Eventos
+                        </a>
+                        <a href="https://buy.stripe.com/dRmdR93JUbx85cV72z5Rm02" 
+                           style="
+                               display: inline-block;
+                               background: #fff;
+                               color: #333;
+                               padding: 15px 30px;
+                               text-decoration: none;
+                               border-radius: 25px;
+                               margin: 10px;
+                               font-weight: bold;
+                               border: 2px solid #333;
+                           ">
+                           👕 Comprar Merch
+                        </a>
+                    </div>
+                    <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
+                        📧 Contacto: Carlesmonistrol@gmail.com<br>
+                        📱 WhatsApp: 675 308 293
+                    </p>
+                </div>
+            `;
+            document.body.appendChild(fallback);
+        }
+        
+        // Auto-detect if page fails to load properly
+        setTimeout(() => {
+            if (!document.querySelector('.hero-banner') || 
+                getComputedStyle(document.querySelector('.hero-banner')).display === 'none') {
+                showConnectionFallback();
+            }
+        }, 3000);
+    </script>
+    
     <!-- Fallback for slow connections -->
     <noscript>
         <style>
