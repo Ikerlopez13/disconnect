@@ -305,3 +305,75 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 }); 
+
+// Instagram browser detection and optimization
+function isInstagramBrowser() {
+    return navigator.userAgent.includes('Instagram') || 
+           window.location.href.includes('fbclid') ||
+           navigator.userAgent.includes('FBAN') ||
+           navigator.userAgent.includes('FBAV');
+}
+
+// Instagram-specific optimizations
+if (isInstagramBrowser()) {
+    console.log('Instagram browser detected - applying optimizations');
+    
+    // Disable problematic animations for Instagram browser
+    document.addEventListener('DOMContentLoaded', function() {
+        const style = document.createElement('style');
+        style.textContent = `
+            .fade-in { opacity: 1 !important; transform: translateY(0) !important; }
+            .hero-image { animation: none !important; }
+            * { transition-duration: 0.1s !important; }
+        `;
+        document.head.appendChild(style);
+        
+        // Force immediate visibility
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        }, 100);
+    });
+    
+    // Add Instagram-specific body class
+    document.body.classList.add('instagram-browser');
+}
+
+// Add "Open in Browser" button for Instagram users
+if (isInstagramBrowser()) {
+    document.addEventListener('DOMContentLoaded', function() {
+        const openBrowserBtn = document.createElement('div');
+        openBrowserBtn.innerHTML = `
+            <div style="
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: #C7DCFF;
+                color: #333;
+                padding: 10px;
+                text-align: center;
+                font-size: 14px;
+                font-weight: 600;
+                z-index: 9999;
+                border-bottom: 1px solid #a8c4f0;
+            ">
+                📱 Para mejor experiencia, abre en tu navegador
+                <button onclick="this.parentElement.parentElement.remove()" style="
+                    background: none;
+                    border: none;
+                    color: #333;
+                    font-size: 16px;
+                    float: right;
+                    cursor: pointer;
+                ">×</button>
+            </div>
+        `;
+        document.body.insertBefore(openBrowserBtn, document.body.firstChild);
+        
+        // Adjust page padding to account for banner
+        document.querySelector('.hero-banner').style.paddingTop = '50px';
+    });
+} 

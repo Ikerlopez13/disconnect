@@ -12,6 +12,17 @@ body {
     background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Instagram browser fixes */
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+}
+
+/* Instagram in-app browser fixes */
+@supports (-webkit-overflow-scrolling: touch) {
+    body {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
 }
 
 /* Prevent layout shift */
@@ -19,6 +30,9 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    /* Instagram browser optimization */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 /* Loading state */
