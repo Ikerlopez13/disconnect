@@ -287,10 +287,84 @@ window.addEventListener('error', function(e) {
     console.warn('Resource failed to load:', e.target.src || e.target.href);
 });
 
-// Ensure page loads even if some resources fail
+// Mobile detection and optimization
+function isMobileDevice() {
+    return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Disable complex animations on mobile for better performance
+function optimizeForMobile() {
+    if (isMobileDevice()) {
+        // Add mobile optimization class
+        document.body.classList.add('mobile-optimized');
+        
+        // Disable floating animations
+        const floatingElements = document.querySelectorAll('.floating-card, .floating-stat, .floating-element');
+        floatingElements.forEach(element => {
+            element.style.animation = 'none';
+            element.style.transform = 'none';
+            element.style.position = 'relative';
+        });
+        
+        // Disable hero image animation
+        const heroImages = document.querySelectorAll('.hero-image img');
+        heroImages.forEach(img => {
+            img.style.animation = 'none';
+            img.style.transform = 'none';
+        });
+        
+        // Disable pulse animations
+        const pulseElements = document.querySelectorAll('.team-icon, .safety-icon, .work-icon');
+        pulseElements.forEach(element => {
+            element.style.animation = 'none';
+            element.style.transform = 'none';
+        });
+        
+        // Reduce transition times for better performance
+        const allElements = document.querySelectorAll('*');
+        allElements.forEach(element => {
+            const computedStyle = window.getComputedStyle(element);
+            if (computedStyle.transitionDuration !== '0s') {
+                element.style.transitionDuration = '0.2s';
+            }
+        });
+    }
+}
+
+// Update DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', function() {
     // Remove loading state
     document.body.classList.remove('loading');
+    
+    // Mobile optimization
+    optimizeForMobile();
+    
+    // Instagram browser detection and optimization
+    if (isInstagramBrowser()) {
+        console.log('Instagram browser detected, applying optimizations');
+        document.body.classList.add('instagram-browser');
+        
+        // Disable animations for Instagram
+        const style = document.createElement('style');
+        style.textContent = `
+            .instagram-browser * {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+            }
+            .instagram-browser .floating-card,
+            .instagram-browser .floating-stat,
+            .instagram-browser .floating-element {
+                position: relative !important;
+                display: block !important;
+                margin: 15px auto !important;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Show "Open in Browser" banner
+        showOpenInBrowserBanner();
+    }
     
     // Fallback for missing Bootstrap
     if (typeof bootstrap === 'undefined') {
@@ -306,40 +380,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }); 
 
-// Instagram browser detection and optimization
-function isInstagramBrowser() {
-    return navigator.userAgent.includes('Instagram') || 
-           window.location.href.includes('fbclid') ||
-           navigator.userAgent.includes('FBAN') ||
-           navigator.userAgent.includes('FBAV');
-}
-
-// Instagram-specific optimizations
-if (isInstagramBrowser()) {
-    console.log('Instagram browser detected - applying optimizations');
-    
-    // Disable problematic animations for Instagram browser
-    document.addEventListener('DOMContentLoaded', function() {
-        const style = document.createElement('style');
-        style.textContent = `
-            .fade-in { opacity: 1 !important; transform: translateY(0) !important; }
-            .hero-image { animation: none !important; }
-            * { transition-duration: 0.1s !important; }
-        `;
-        document.head.appendChild(style);
-        
-        // Force immediate visibility
-        setTimeout(() => {
-            document.querySelectorAll('.fade-in').forEach(el => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            });
-        }, 100);
-    });
-    
-    // Add Instagram-specific body class
-    document.body.classList.add('instagram-browser');
-}
+// Optimize on window resize
+window.addEventListener('resize', function() {
+    optimizeForMobile();
+});
 
 // Add "Open in Browser" button for Instagram users
 if (isInstagramBrowser()) {
